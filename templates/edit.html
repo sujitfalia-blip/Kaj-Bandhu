@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Edit Worker - SF Works Hub</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="header">
+<div class="logo">✏️ Edit Worker</div>
+<a href="/" class="logout">Back</a>
+</div>
+
+<div class="container">
+
+<div class="card">
+
+<h2>Update Worker</h2>
+
+{% if worker[6] %}
+<img src="{{ url_for('static', filename='uploads/' + worker[6]) }}" class="worker-img">
+{% endif %}
+
+<form method="POST" enctype="multipart/form-data">
+
+<input name="name" value="{{ worker[1] }}" required>
+<input name="skill" value="{{ worker[2] }}" required>
+<input name="location" value="{{ worker[3] }}" required>
+<input name="phone" value="{{ worker[4] }}" required>
+
+<textarea name="description">{{ worker[5] }}</textarea>
+
+<input type="file" name="image">
+
+<button>Update Worker</button>
+
+</form>
+
+</div>
+
+</div>
+
+</body>
+</html>
